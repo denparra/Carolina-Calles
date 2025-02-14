@@ -1,5 +1,4 @@
-// src/App.js
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import {
   FaEnvelope,
@@ -9,24 +8,42 @@ import {
   FaCheckCircle,
   FaBriefcase,
   FaGraduationCap,
-  FaCertificate
+  FaCertificate,
+  FaBars,
+  FaTimes
 } from 'react-icons/fa';
 
 import profileImg from './assets/profile.jpg';
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  // Cierra el menú al hacer click en un enlace
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <div className="cv-container">
       {/* Barra de navegación */}
       <nav className="navbar">
-        <ul>
-          <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#perfil">Perfil Profesional</a></li>
-          <li><a href="#aptitudes">Aptitudes</a></li>
-          <li><a href="#experiencia">Experiencia</a></li>
-          <li><a href="#educacion">Educación</a></li>
-          <li><a href="#cursos">Cursos</a></li>
-        </ul>
+        <div className="navbar-container">
+          <div className="hamburger" onClick={toggleMenu}>
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </div>
+          <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
+            <li><a onClick={closeMenu} href="#contacto">Contacto</a></li>
+            <li><a onClick={closeMenu} href="#perfil">Perfil Profesional</a></li>
+            <li><a onClick={closeMenu} href="#aptitudes">Aptitudes</a></li>
+            <li><a onClick={closeMenu} href="#experiencia">Experiencia</a></li>
+            <li><a onClick={closeMenu} href="#educacion">Educación</a></li>
+            <li><a onClick={closeMenu} href="#cursos">Cursos</a></li>
+          </ul>
+        </div>
       </nav>
 
       {/* Encabezado */}
