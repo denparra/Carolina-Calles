@@ -1,0 +1,160 @@
+/* Definición de variables de color */
+:root {
+  --primary-color: #5A2D82;       /* Morado oscuro */
+  --secondary-color: #794aa8;     /* Morado medio */
+  --accent-color: #E74C3C;        /* Rojo/acento */
+  --text-color: #333;
+  --background-color: #f7f7f7;
+  --section-background: #ffffff;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Contenedor principal */
+.cv-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 80px; /* Para dejar espacio a la navbar fija */
+}
+
+/* Barra de navegación fija */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  padding: 10px 0;
+  z-index: 100;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.navbar li {
+  margin: 0 15px;
+}
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.navbar a:hover {
+  color: var(--accent-color);
+}
+
+/* Encabezado con degradado */
+/* Header con imagen de fondo y overlay */
+.header-section {
+  position: relative; /* Para posicionar el overlay */
+  text-align: center;
+  padding: 50px 20px;
+  background: url('https://mandomedio.com/colombia/wp-content/uploads/2021/10/recursos-humanos-mandomedio-colombia-copia-1.jpg') no-repeat center center/cover;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+/* Overlay para oscurecer la imagen y mejorar la legibilidad */
+.header-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según necesites */
+  z-index: 0;
+}
+
+/* Asegúrate de que el contenido del header esté por encima del overlay */
+.header-content {
+  position: relative;
+  z-index: 1;
+}
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Estilo para cada sección */
+.section {
+  background: var(--section-background);
+  margin-bottom: 20px;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+.section h2 {
+  font-size: 1.8em;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+/* Listas y detalles */
+ul {
+  list-style: none;
+  padding: 0;
+}
+.contact-list li {
+  margin-bottom: 10px;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.experience-item,
+.education-item,
+.course-item {
+  margin-bottom: 20px;
+}
+.experience-item h3,
+.education-item h3 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.2em;
+}
+.position,
+.date,
+.location,
+.degree,
+.postgrado {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background: #e9ecef;
+  font-size: 0.9em;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+  }
+  .navbar li {
+    margin: 10px 0;
+  }
+}
+ 
